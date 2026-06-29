@@ -1,0 +1,758 @@
+/* =============================================
+   styles2.css - Tienda de Comercio Electrónico
+   Programación Web II
+   Alumno: Claudio Baeza Henríquez
+   ============================================= */
+
+/* Importar fuente de Google */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  background-color: #f0f2f5;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* El main crece para empujar el footer siempre al fondo */
+main {
+  flex: 1;
+}
+
+/* ---- Encabezado ---- */
+header {
+  background-color: #1a1a2e;
+  color: white;
+  padding: 14px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+header h1 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+#btn-carrito {
+  background-color: #e94560;
+  color: white;
+  border: none;
+  padding: 9px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.88rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+#btn-carrito:hover {
+  background-color: #c73652;
+}
+
+/* Navegación del header */
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-link {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 7px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: all 0.2s;
+}
+
+.nav-link:hover {
+  background-color: rgba(255,255,255,0.1);
+  color: white;
+}
+
+/* ---- Hero / Bienvenida ---- */
+.hero {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+  color: white;
+  padding: 36px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.hero-texto h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 6px;
+}
+
+.hero-texto h2 span { color: #e94560; }
+
+.hero-texto p {
+  font-size: 0.88rem;
+  color: #aab;
+  margin: 0;
+}
+
+.hero-stats { display: flex; gap: 20px; }
+
+.stat {
+  text-align: center;
+  background: rgba(255,255,255,0.08);
+  padding: 12px 22px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+.stat strong {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #e94560;
+}
+
+.stat span {
+  font-size: 0.72rem;
+  color: #aab;
+  margin-top: 2px;
+  display: block;
+}
+
+/* Wrapper blanco para buscador + filtros */
+.seccion-busqueda {
+  background: white;
+  padding: 20px 20px 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  margin-bottom: 20px;
+}
+
+/* ---- Buscador ---- */
+.search-container {
+  text-align: center;
+  margin: 0 0 12px;
+}
+
+.search-container input {
+  padding: 10px 16px;
+  width: 320px;
+  border: 2px solid #ddd;
+  border-radius: 25px 0 0 25px;
+  font-size: 0.9rem;
+  font-family: 'Poppins', sans-serif;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.search-container input:focus {
+  border-color: #1a1a2e;
+}
+
+.search-container button {
+  padding: 10px 20px;
+  background-color: #1a1a2e;
+  color: white;
+  border: none;
+  border-radius: 0 25px 25px 0;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-family: 'Poppins', sans-serif;
+  transition: background-color 0.2s;
+}
+
+.search-container button:hover {
+  background-color: #e94560;
+}
+
+/* ---- Filtros ---- */
+.filtros {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  padding: 12px 20px;
+  background-color: white;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.filtros label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.filtros select,
+.filtros input[type="number"] {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-family: 'Poppins', sans-serif;
+  outline: none;
+  background-color: #fafafa;
+}
+
+.filtros select:focus,
+.filtros input[type="number"]:focus {
+  border-color: #1a1a2e;
+}
+
+/* ---- Contador de resultados ---- */
+#total-resultados {
+  text-align: center;
+  color: #888;
+  font-size: 0.82rem;
+  margin-bottom: 15px;
+}
+
+/* ---- Tarjetas de productos ---- */
+#results-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  justify-content: center;
+  margin: 0 20px 40px;
+}
+
+.product-card {
+  background-color: white;
+  border-radius: 10px;
+  padding: 18px;
+  width: 210px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+.product-card .emoji {
+  font-size: 2.5rem;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.product-card h3 {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-bottom: 5px;
+}
+
+.product-card .categoria {
+  font-size: 0.75rem;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.product-card .precio {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #e94560;
+  margin-bottom: 6px;
+}
+
+.product-card .estado {
+  font-size: 0.78rem;
+  color: #777;
+  margin-bottom: 12px;
+}
+
+.oferta-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #e94560;
+  color: white;
+  font-size: 0.68rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 10px;
+  text-transform: uppercase;
+}
+
+.product-card button {
+  padding: 8px 0;
+  background-color: #1a1a2e;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-family: 'Poppins', sans-serif;
+  width: 100%;
+  transition: background-color 0.2s;
+}
+
+.product-card button:hover {
+  background-color: #e94560;
+}
+
+/* ---- Sin resultados ---- */
+.sin-resultados {
+  text-align: center;
+  color: #aaa;
+  margin: 40px auto;
+  font-size: 0.95rem;
+}
+
+/* ---- Panel del carrito ---- */
+#panel-carrito {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 290px;
+  height: 100%;
+  background-color: white;
+  border-left: 1px solid #e0e0e0;
+  padding: 24px 20px;
+  box-shadow: -4px 0 15px rgba(0,0,0,0.1);
+  overflow-y: auto;
+  z-index: 999;
+}
+
+#panel-carrito h2 {
+  font-size: 1.05rem;
+  color: #1a1a2e;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+#lista-carrito {
+  list-style: none;
+  margin-bottom: 16px;
+}
+
+#lista-carrito li {
+  border-bottom: 1px solid #f0f0f0;
+  padding: 9px 0;
+  font-size: 0.82rem;
+  color: #444;
+}
+
+.carrito-total {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-bottom: 14px;
+}
+
+.carrito-total span {
+  color: #e94560;
+}
+
+.btn-cerrar {
+  background-color: #eee;
+  color: #333;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-family: 'Poppins', sans-serif;
+  margin-right: 8px;
+  transition: background-color 0.2s;
+}
+
+.btn-cerrar:hover {
+  background-color: #ddd;
+}
+
+.btn-pagar {
+  background-color: #e94560;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-family: 'Poppins', sans-serif;
+  transition: background-color 0.2s;
+}
+
+.btn-pagar:hover {
+  background-color: #c73652;
+}
+
+/* ---- Notificaciones ---- */
+#notificaciones {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.notif {
+  background-color: #1a1a2e;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-family: 'Poppins', sans-serif;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+  animation: entrar 0.3s ease;
+  max-width: 280px;
+}
+
+.notif.exito { background-color: #2ecc71; }
+.notif.error { background-color: #e74c3c; }
+.notif.promo { background-color: #8e44ad; }
+
+@keyframes entrar {
+  from { opacity: 0; transform: translateX(60px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ---- Responsive básico ---- */
+@media (max-width: 600px) {
+  .search-container input { width: 200px; }
+  .product-card { width: 160px; }
+  #panel-carrito { width: 100%; }
+}
+
+/* ---- Footer ---- */
+footer {
+  text-align: center;
+  padding: 16px;
+  background-color: #1a1a2e;
+  color: #aaa;
+  font-size: 0.82rem;
+  margin-top: auto;
+  width: 100%;
+}
+
+footer strong {
+  color: white;
+}
+
+/* ================================================
+   ESTILOS PÁGINAS PHP (Semana 4)
+   ================================================ */
+
+/* Contenido general de páginas PHP */
+.pagina-contenido {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px 20px 40px;
+}
+
+/* Banner superior de cada página PHP */
+.pagina-banner {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: white;
+  padding: 28px 30px;
+  border-radius: 12px;
+  margin-bottom: 28px;
+  border-left: 5px solid #e94560;
+}
+
+.pagina-banner h2 {
+  font-size: 1.3rem;
+  margin: 0 0 6px;
+  font-weight: 700;
+}
+
+.pagina-banner p {
+  font-size: 0.84rem;
+  color: #aab;
+  margin: 0;
+}
+
+/* Alertas de éxito / error */
+.alerta {
+  padding: 14px 18px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.alerta.exito {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.alerta.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* Tarjeta de formulario */
+.form-card {
+  background: white;
+  border-radius: 10px;
+  padding: 28px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  margin-bottom: 30px;
+}
+
+.form-card h3 {
+  font-size: 1rem;
+  color: #1a1a2e;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+/* Campos del formulario */
+.campo {
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.campo label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #444;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+  padding: 9px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  font-family: 'Poppins', sans-serif;
+  outline: none;
+  transition: border-color 0.2s;
+  background-color: #fafafa;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+  border-color: #1a1a2e;
+  background-color: white;
+}
+
+.campo textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+
+/* Botón enviar formulario */
+.btn-enviar {
+  background-color: #1a1a2e;
+  color: white;
+  border: none;
+  padding: 11px 28px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  width: 100%;
+  margin-top: 6px;
+}
+
+.btn-enviar:hover {
+  background-color: #e94560;
+}
+
+/* Lista de reseñas */
+.resenas-lista h3 {
+  font-size: 1rem;
+  color: #1a1a2e;
+  margin-bottom: 16px;
+}
+
+.sin-resenas {
+  text-align: center;
+  color: #aaa;
+  padding: 30px;
+  font-size: 0.9rem;
+}
+
+/* Tarjeta de cada reseña */
+.resena-card {
+  background: white;
+  border-radius: 8px;
+  padding: 18px;
+  margin-bottom: 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  border-left: 4px solid #e94560;
+}
+
+.resena-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.resena-producto {
+  font-weight: 600;
+  color: #1a1a2e;
+  font-size: 0.9rem;
+}
+
+.resena-estrellas {
+  color: #f59e0b;
+  font-size: 1rem;
+  letter-spacing: 2px;
+}
+
+.resena-comentario {
+  font-size: 0.85rem;
+  color: #555;
+  font-style: italic;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.resena-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: #999;
+}
+
+.resena-autor {
+  font-weight: 600;
+  color: #666;
+}
+
+/* Tabla de resultados PHP */
+.tabla-resultado {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-size: 0.88rem;
+}
+
+.tabla-resultado th {
+  background-color: #1a1a2e;
+  color: white;
+  padding: 10px 14px;
+  text-align: left;
+}
+
+.tabla-resultado td {
+  padding: 10px 14px;
+  border-bottom: 1px solid #eee;
+  color: #444;
+}
+
+.tabla-resultado tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Fila de búsqueda con botón al lado */
+.busqueda-fila {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.busqueda-fila input {
+  flex: 1;
+}
+
+.btn-buscar {
+  background-color: #1a1a2e;
+  color: white;
+  border: none;
+  padding: 9px 18px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  white-space: nowrap;
+}
+
+.btn-buscar:hover {
+  background-color: #e94560;
+}
+
+.btn-limpiar {
+  background-color: #eee;
+  color: #555;
+  border: none;
+  padding: 9px 14px;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.2s;
+}
+
+.btn-limpiar:hover {
+  background-color: #ddd;
+}
+
+/* Botón volver */
+.btn-volver {
+  display: inline-block;
+  margin-top: 10px;
+  color: #1a1a2e;
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.btn-volver:hover {
+  color: #e94560;
+}
+
+/* Resumen del pedido */
+.resumen-pedido {
+  margin-top: 16px;
+  padding: 12px 16px;
+  background-color: #f0f2f5;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: #444;
+  border-left: 4px solid #1a1a2e;
+}
+
+/* Código inline en tablas */
+code {
+  background-color: #f0f2f5;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  color: #e94560;
+  font-family: monospace;
+}
